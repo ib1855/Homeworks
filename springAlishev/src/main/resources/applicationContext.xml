@@ -7,22 +7,24 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:component-scan base-package="popMusicPackage"/>
     <context:property-placeholder location="musicPlayer.properties"/>
 
     <bean id="musicBeanClassical"
-          class="ClassicalMusic">
+          class="general.ClassicalMusic">
     </bean>
 
     <bean id="musicBeanRock"
-          class="RockMusic">
+          class="general.RockMusic">
     </bean>
 
     <bean id="musicBeanRap"
-          class="RapMusic">
+          class="general.RapMusic"
+    scope="prototype">
     </bean>
 
     <bean id="musicPlayer"
-          class="MusicPlayer">
+          class="general.MusicPlayer">
         <property name="musicList">
             <list>
                 <ref bean="musicBeanRap"/>
@@ -34,6 +36,7 @@
 
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}" />
+
     </bean>
 
 </beans>
