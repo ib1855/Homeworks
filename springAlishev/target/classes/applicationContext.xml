@@ -19,7 +19,8 @@
     </bean>
 
     <bean id="musicBeanRap"
-          class="general.RapMusic">
+          class="general.RapMusic"
+    scope="prototype">
     </bean>
 
     <bean id="musicPlayer"
@@ -32,6 +33,8 @@
             </list>
 
         </property>
+
+
 
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}" />

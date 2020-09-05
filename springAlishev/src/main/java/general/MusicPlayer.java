@@ -1,13 +1,28 @@
 package general;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 import java.util.List;
 
 public class MusicPlayer {
     private String name;
     private int volume;
     private List<Music> musicList;
-    public MusicPlayer(List<Music> musicList){
+
+    public Music getMusic() {
+        return music;
+    }
+
+    @Autowired
+    public void setMusic(@Qualifier("musicBeanRock") Music music) {
+        this.music = music;
+    }
+
+    private Music music;
+    public MusicPlayer(List<Music> musicList, Music music){
         this.musicList = musicList;
+        this.music = music;
     }
 
     public MusicPlayer() {

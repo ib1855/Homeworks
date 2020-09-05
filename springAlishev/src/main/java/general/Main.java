@@ -16,6 +16,8 @@ public class Main {
         //System.out.println(musicPlayer.getVolume());
         Music music = context.getBean("TestComponent", PopMusic.class);
         System.out.println(music.getSong());
+        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+        System.out.println(musicPlayer.getMusic().getSong());
         context.close();
     }
 }
