@@ -10,4 +10,9 @@ public class HelloController {
     public String sayHello(){
         return "hello_world";
     }
+
+    @GetMapping("/jsp")
+    public String testJsp(){
+        return "testjsp";
+    }
 }
